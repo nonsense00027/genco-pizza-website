@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&family=Sansita+Swashed:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unica+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Niconne&display=swap");
+:root {
+  --primary-color: #6cc15a;
+  --primary-font: "Quicksand", sans-serif;
+  --hero-font: "Sansita Swashed", cursive;
+  --sample-font: "Lobster", cursive;
+  --sample2-font: "Niconne", cursive;
+}
+
 * {
   margin: 0;
 }
