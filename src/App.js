@@ -5,6 +5,7 @@ import Admin from "./components/Admin/";
 import Header from "./components/Header";
 import Home from "./components/Home/";
 import Test from "./components/Test/Test";
+import Blog from "./components/Admin/Blog/AdminBlog"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // App = Root
@@ -21,7 +22,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/test">
-            <Test></Test>
+            <Blog></Blog>
           </Route>
           <Route path="/">
             <Landing />
