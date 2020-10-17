@@ -1,0 +1,4 @@
+.swipermaster > img {
+  object-fit: contain;
+  width: 300px;
+}

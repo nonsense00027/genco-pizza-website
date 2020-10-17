@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import Scrollbar from 'smooth-scrollbar'
+
+// Scrollbar.init(document.querySelector('#root'), {});
 
 ReactDOM.render(
   <React.StrictMode>
