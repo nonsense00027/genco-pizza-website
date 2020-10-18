@@ -5,7 +5,9 @@ import Admin from "./components/Admin/";
 import Header from "./components/Header";
 import Home from "./components/Home/";
 import Test from "./components/Test/Test";
-import Blog from "./components/Admin/Blog/AdminBlog"
+import AdminBlog from "./components/Admin/Blog/AdminBlog"
+import Blog from "./components/Admin/Blog/UserBlog"
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -23,6 +25,9 @@ function App() {
             <Home />
           </Route>
           <Route path="/test">
+            <AdminBlog></AdminBlog>
+          </Route>
+          <Route path="/blog">
             <Blog></Blog>
           </Route>
           <Route path="/">

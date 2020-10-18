@@ -18,6 +18,9 @@ function AdminBlog() {
     }
 
     function getPosts(){
+        $(document).ready(function() {
+            $('#summernote').summernote();
+          });
        db.collection('Posts').onSnapshot(snapshot => {
            let changes = snapshot.docChanges();
            changes.forEach((change) => {
@@ -31,25 +34,37 @@ function AdminBlog() {
            })
        })
       }
-       
+
     useEffect(() => {
         getPosts()
+        
     },[])
 
 
-   
-
     return (
         <div className="adminBlog">
-                <h1>Gello</h1>
-                {posts.map((post ) => (
-                    <div className="post">
-                        <h1>{post.title}</h1>
-                        <h1>{post.subject}</h1>
-                        <h1>{post.body}</h1>
+                <form>
+                    <div className="form__group">
+                        <label>Enter Title</label>
+                        <input type="text"  name="title "/>
                     </div>
-                ))}
+
+                    <div className="form__group">
+                        <label>Enter Subject</label>
+                        <input type="text" name="subject" />
+                    </div>
+
+                    <div className="form__group">
+                        <label>Enter Body</label>
+                        <textarea id="summernote"></textarea>
+                    </div>
+                </form>
+
+                <button type="submit" id= "form__submit">
+
+                </button>
         </div>
+        
     )
 }
 
