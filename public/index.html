@@ -12,10 +12,17 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+      <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <title>Genco Pizza - Development Site</title>
   </head>
-  <body>
+  <body class="hold-transition sidebar-mini">
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>
@@ -44,7 +51,15 @@
       logged_out_greeting="Hello, Welcome to Genco Pizza!">
     </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="wrapper"></div>
+    </div>
+
+    <script src="%PUBLIC_URL%/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="%PUBLIC_URL%/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="%PUBLIC_URL%/dist/js/adminlte.js"></script>
 
   </body>
 </html>

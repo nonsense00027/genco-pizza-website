@@ -19,4 +19,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default import("@material-ui/core").Header;

@@ -10,7 +10,7 @@
 
 # production
 /build
-
+/AdminLTE-3.0.5
 # misc
 .DS_Store
 .env.local

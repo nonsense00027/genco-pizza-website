@@ -9,6 +9,10 @@ import AdminBlog from "./components/Admin/Blog/AdminBlog"
 import Blog from "./components/Admin/Blog/UserBlog"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Sidebar from "./components/Admin/Layouts/Sidebar";
+import AdminHeader from "./components/Admin/Layouts/AdminHeader";
+import Footer from "./components/Admin/Layouts/Footer";
+
 
 
 // App = Root
@@ -25,7 +29,10 @@ function App() {
             <Home />
           </Route>
           <Route path="/test">
+            <AdminHeader></AdminHeader>
+            <Sidebar></Sidebar>
             <AdminBlog></AdminBlog>
+            <Footer></Footer>
           </Route>
           <Route path="/blog">
             <Blog></Blog>
