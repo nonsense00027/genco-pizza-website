@@ -5,6 +5,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './AdminBlog.css'
 
+
 function AdminBlog() {
     const [{posts}, dispatch] = useStateValue();
 
@@ -64,7 +65,20 @@ function AdminBlog() {
                 <div className="content">
                     <div className="container-fluid">
                         <div className="card">
-                            <form id="blog__entry">
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+                            {/* <form id="blog__entry">
                                 <div className="form__group">
                                     <label>Enter Title</label>
                                     <input type="text"  name="title "/>
@@ -80,7 +94,7 @@ function AdminBlog() {
                                     <Editor/>
                                 </div>
                                 <button type="submit" id= "form__submit">Submit</button>
-                            </form>
+                            </form> */}
                         </div>
                         
                     </div>
