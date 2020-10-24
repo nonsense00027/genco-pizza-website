@@ -55,7 +55,7 @@ function AdminBlog() {
                             <div className="col-sm-6">
                                 <ol className="breadcrumb float-sm-right">
                                 <li className="breadcrumb-item"><a href="#">Home</a></li>
-                                <li className="breadcrumb-item active">Dashboard v3</li>
+                                <li className="breadcrumb-item active">Posts</li>
                                 </ol>
                             </div>
                             </div>
