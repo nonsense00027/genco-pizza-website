@@ -7,7 +7,7 @@ import Post from './Post'
 function UserBlog() {
 
     const [{posts}, dispatch] = useStateValue();
-
+  
     const db = firebase.firestore();
 
     const addToPosts = (title,subject,body,author) => {
