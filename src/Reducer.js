@@ -1,4 +1,4 @@
-const action = {
+const types = {
     ADD_TO_POSTS: "ADD_TO_POSTS",
   };
   
@@ -7,10 +7,10 @@ const action = {
   const reducer = (state, action) => {
     console.log("action is:", action);
     switch (action.type) {
-      case action.ADD_TO_POSTS:
+      case types.ADD_TO_POSTS:
         return {
           ...state,
-          posts: [...state.posts, action.post],
+          posts: [...state.posts, action.payload],
         };
   
       default:

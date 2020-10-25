@@ -13,7 +13,7 @@ function UserBlog() {
     const addToPosts = (title,subject,body,author) => {
         dispatch({
             type: 'ADD_TO_POSTS',
-            post: {
+            payload: {
                 title,
                 subject,
                 body,   
