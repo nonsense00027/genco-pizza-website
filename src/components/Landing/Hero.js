@@ -2,6 +2,7 @@ import React from "react";
 import "./Hero.css";
 import logo from "../../img/logo.png";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -9,7 +10,8 @@ function Hero() {
       <div className="hero__content">
         <img src={logo} alt="" className="hero__logo" />
         <h1>
-          Italian-inspired <br /> homemade pizza{" "}
+          Italian-inspired {user}
+          <br /> homemade pizza{" "}
         </h1>
         <p>
           We deliver them door to door so you can enjoy right in the comforts of
@@ -17,7 +19,9 @@ function Hero() {
           family and friends.
         </p>
         <div className="hero__options">
-          <Button className="hero__orderButton">order now</Button>
+          <Link to="/home/pizza">
+            <Button className="hero__orderButton">order now</Button>
+          </Link>
           <Button className="hero__contactButton">contact us</Button>
         </div>
       </div>

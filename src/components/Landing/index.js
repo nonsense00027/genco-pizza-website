@@ -2,6 +2,7 @@ import React from "react";
 import "../../css/Landing.css";
 import Hero from "./Hero";
 import Specials from "./Specials";
+import { useStateValue } from "../../DataLayer";
 
 function index() {
   return (

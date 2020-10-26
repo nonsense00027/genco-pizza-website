@@ -5,6 +5,7 @@ const initialState = {
   posts: [],
   user: null,
   products: [],
+  displayProducts: [],
 };
 
 //Prepares the data layer
