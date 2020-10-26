@@ -16,7 +16,7 @@ function PostCard({Post}) {
             </div>
             </div>
         </a>
-
+    
     </div>
     )
 }

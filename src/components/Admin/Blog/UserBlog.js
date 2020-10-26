@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../../../firebase";
 import { useStateValue } from "../../../DataLayer";
 import PostCard from "./PostCard";
 import "./UserBlog.css";
-import Post from "./Post";
+
 
 function UserBlog() {
   const [{ posts }, dispatch] = useStateValue();
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   const addToPosts = (title, subject, body, author) => {
     dispatch({
@@ -20,18 +23,31 @@ function UserBlog() {
     });
   };
 
-  function showList(e) {
+
+  // Code to utilize the functions below 
+  window.onload = () => {
+    const listViewButton = document.querySelector('.list-view-button');
+    const gridViewButton = document.querySelector('.grid-view-button');
+
+    listViewButton.onclick = () => showList();
+    gridViewButton.onclick = () => gridList();
+
+  }
+  
+
+  // Functions for toggling between list and grid view 
+  function showList() {
     var $gridCont = document.getElementById("grid-container");
-    e.preventDefault();
+
     if ($gridCont.classList.contains("list-view") == false)
       $gridCont.classList.add("list-view");
   }
 
-  function gridList(e) {
+  function gridList() {
     var $gridCont = document.getElementById("grid-container");
-    e.preventDefault();
     $gridCont.classList.remove("list-view");
   }
+
 
   function getPosts() {
     db.collection("Posts").onSnapshot((snapshot) => {
@@ -54,35 +70,44 @@ function UserBlog() {
     getPosts();
   }, []);
 
+  useEffect(() => {
+    setFilteredPosts(
+      posts.filter((post) =>
+        post.title.toLowerCase().includes(search.toLowerCase())
+      )
+    );  console.log(filteredPosts.length)
+  }, [search, posts]);
+
+  if (loading) {
+    return <p>Loading posts...</p>;
+  }
+
   return (
     <div className="userBlog">
-      <div className="container mb-3 mt-3">
-        <button className="btn btn-primary btn-grid" onClick={gridList}>
-          Grid View
-        </button>
-        <button className="btn btn-danger btn-list" onClick={showList}>
-          List View
-        </button>
-      </div>
-
+    <div className="filter-buttons">
+      <div className="list-view-button"><i className="fa fa-bars" aria-hidden="true" /> List view</div>
+      <div className="grid-view-button"><i className="fa fa-th-large" aria-hidden="true" /> Grid view</div>
+    </div>
+    <div className="search-bar">
+      <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder="Search Blog" id="input"/>
+    </div>
       <div className="container grid-container" id="grid-container">
         <div className="row">
-          {posts.map((post) => (
-            <PostCard Post={post}></PostCard>
-          ))}
+          {
+            filteredPosts.length == 0 ? 
+              <h1>No result found</h1>
+            :
+              filteredPosts.map((post) => {
+              console.log(filteredPosts.length)
+              return <PostCard Post={post}></PostCard>
+          })}
         </div>
       </div>
-
-      {/* {posts.map((post) => 
-                (  <Post
-                    id = {post.id}
-                    title = {post.title}
-                    subject = {post.subject}
-                    body = {post.body}
-                ></Post>)
-    
-                )} */}
+      <h1>
+    <p></p>
+      </h1>
     </div>
+    
   );
 }
 
