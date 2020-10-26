@@ -12,7 +12,7 @@ const reducer = (state, action) => {
     case types.ADD_TO_POSTS:
       return {
         ...state,
-        posts: [...state.posts, action.post],
+        posts: [...state.posts, action.payload],
       };
 
     case types.GET_PRODUCTS:

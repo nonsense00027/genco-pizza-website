@@ -55,7 +55,7 @@ function AdminBlog() {
                   <li className="breadcrumb-item">
                     <a href="#">Home</a>
                   </li>
-                  <li className="breadcrumb-item active">Dashboard v3</li>
+                  <li className="breadcrumb-item active">Posts</li>
                 </ol>
               </div>
             </div>
@@ -64,25 +64,23 @@ function AdminBlog() {
         <div className="content">
           <div className="container-fluid">
             <div className="card">
-              <form id="blog__entry">
-                <div className="form__group">
-                  <label>Enter Title</label>
-                  <input type="text" name="title " />
-                </div>
+              {/* <form id="blog__entry">
+                                <div className="form__group">
+                                    <label>Enter Title</label>
+                                    <input type="text"  name="title "/>
+                                </div>
 
-                <div className="form__group">
-                  <label>Enter Subject</label>
-                  <input type="text" name="subject" />
-                </div>
+                                <div className="form__group">
+                                    <label>Enter Subject</label>
+                                    <input type="text" name="subject" />
+                                </div>
 
-                <div className="form__group">
-                  <label>Enter Body</label>
-                  <Editor />
-                </div>
-                <button type="submit" id="form__submit">
-                  Submit
-                </button>
-              </form>
+                                <div className="form__group">
+                                    <label>Enter Body</label>
+                                    <Editor/>
+                                </div>
+                                <button type="submit" id= "form__submit">Submit</button>
+                            </form> */}
             </div>
           </div>
         </div>
