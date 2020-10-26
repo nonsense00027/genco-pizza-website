@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDlAUSUeWUa-fG8xERbPNBilTCM-smpb3U",
   authDomain: "genco-pizza.firebaseapp.com",
@@ -11,7 +11,7 @@ const firebaseConfig = {
   measurementId: "G-LQD4CPYBYN",
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
 const auth = firebase.auth();

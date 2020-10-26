@@ -10,8 +10,8 @@ function Hero() {
       <div className="hero__content">
         <img src={logo} alt="" className="hero__logo" />
         <h1>
-          Italian-inspired {user}
-          <br /> homemade pizza{" "}
+          Italian-inspired
+          <br /> homemade pizza
         </h1>
         <p>
           We deliver them door to door so you can enjoy right in the comforts of

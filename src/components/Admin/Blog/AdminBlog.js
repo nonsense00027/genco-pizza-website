@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import firebase from "../../../firebase";
 import { useStateValue } from "../../../DataLayer";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./AdminBlog.css";
+import { db } from "../../../firebase";
 
 function AdminBlog() {
   const [{ posts }, dispatch] = useStateValue();
-
-  const db = firebase.firestore();
 
   const addToPosts = (title, subject, body) => {
     dispatch({
