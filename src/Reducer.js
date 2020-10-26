@@ -1,4 +1,4 @@
-const types = {
+export const types = {
     ADD_TO_POSTS: "ADD_TO_POSTS",
   };
   
