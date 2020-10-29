@@ -4,6 +4,7 @@ import reducer from "./Reducer";
 const initialState = {
   posts: [],
   user: null,
+  categories: [],
   products: [],
   displayProducts: [],
 };

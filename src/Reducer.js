@@ -1,5 +1,6 @@
 export const types = {
   ADD_TO_POSTS: "ADD_TO_POSTS",
+  GET_CATEGORIES: "GET_CATEGORIES",
   GET_PRODUCTS: "GET_PRODUCTS",
   GET_DISPLAY_PRODUCTS: "GET_DISPLAY_PRODUCTS",
 };
@@ -13,6 +14,17 @@ const reducer = (state, action) => {
       return {
         ...state,
         posts: [...state.posts, action.payload],
+      };
+
+    case types.GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload
+          .map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }))
+          .sort((a, b) => a.place - b.place),
       };
 
     case types.GET_PRODUCTS:

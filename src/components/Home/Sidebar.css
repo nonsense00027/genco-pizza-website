@@ -1,0 +1,30 @@
+.sidebar {
+  position: fixed;
+  width: 300px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar__categories > h2 {
+  font-size: 20px;
+  font-family: var(--primary-font);
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  width: fit-content;
+  cursor: pointer;
+  transition: 0.1s ease-in;
+}
+
+.sidebar__categories .active {
+  background-color: #fac56a;
+  color: #fff;
+}
+
+.sidebar__categories > h2:hover {
+  background-color: #fac56a;
+  color: #fff;
+}

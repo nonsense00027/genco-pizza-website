@@ -15,19 +15,29 @@ import Footer from "./components/Admin/Layouts/Footer";
 
 import { db } from "./firebase";
 import { useStateValue } from "./DataLayer";
+import { types } from "./Reducer";
 
 // App = Root
 function App() {
-  const [, dispatch] = useStateValue();
+  const [{ products }, dispatch] = useStateValue();
 
   useEffect(() => {
     db.collection("products").onSnapshot((snapshot) => {
       dispatch({
-        type: "GET_PRODUCTS",
+        type: types.GET_PRODUCTS,
+        payload: snapshot.docs,
+      });
+    });
+
+    db.collection("categories").onSnapshot((snapshot) => {
+      dispatch({
+        type: types.GET_CATEGORIES,
         payload: snapshot.docs,
       });
     });
   }, []);
+
+  // console.log("PRODUCTS", products);
 
   return (
     <Router>
