@@ -37,7 +37,7 @@ function App() {
             <Admin />
           </Route>
           <Route path="/home/:category">
-            <Header />
+            {/* <Header /> */}
             <Home />
           </Route>
           <Route path="/test">

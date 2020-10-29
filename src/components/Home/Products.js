@@ -14,6 +14,8 @@ function Products() {
     });
   }, [category]);
 
+  console.log("category", category);
+
   return (
     <div className="products">
       <h1>Products Component</h1>

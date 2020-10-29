@@ -19,7 +19,7 @@ function Hero() {
           family and friends.
         </p>
         <div className="hero__options">
-          <Link to="/home/pizza">
+          <Link to="/home/pizza" className="link">
             <Button className="hero__orderButton">order now</Button>
           </Link>
           <Button className="hero__contactButton">contact us</Button>
