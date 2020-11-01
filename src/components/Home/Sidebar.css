@@ -1,11 +1,13 @@
 .sidebar {
   position: fixed;
   width: 300px;
+  height: 100vh;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 8px 0 20px rgba(0, 0, 0, 0.07);
 }
 
 .sidebar__categories > h2 {
