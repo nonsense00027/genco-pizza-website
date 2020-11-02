@@ -4,6 +4,7 @@ import pizza from "../../img/pizza.jpg";
 import { Button, Inpu, IconButton, Badge } from "@material-ui/core";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import swal from "@sweetalert/with-react";
 
 function Pizza({ name, price, category, id }) {
   const [qty, setQty] = useState(1);
@@ -16,6 +17,15 @@ function Pizza({ name, price, category, id }) {
     if (qty > 1) {
       setQty((prevQty) => prevQty - 1);
     }
+  };
+
+  const addOrder = () => {
+    swal({
+      title: "Order added!",
+      text: `${qty} pc/s ${name}`,
+      icon: "success",
+      buttons: false,
+    });
   };
 
   return (
@@ -52,7 +62,9 @@ function Pizza({ name, price, category, id }) {
             </IconButton>
           </div>
         </div>
-        <Button className="pizza__order">add order</Button>
+        <Button className="pizza__order" onClick={addOrder}>
+          add order
+        </Button>
       </div>
     </div>
   );
