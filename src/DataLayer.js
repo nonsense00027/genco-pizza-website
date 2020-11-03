@@ -7,6 +7,7 @@ const initialState = {
   categories: [],
   products: [],
   displayProducts: [],
+  cart: [],
 };
 
 //Prepares the data layer

@@ -1,6 +1,6 @@
 .products {
   margin-left: 300px;
-  background-color: #f6f6f6;
+  background-color: #eeeeee;
   height: 100%;
   padding: 50px;
 }
@@ -57,4 +57,27 @@
 .products__body {
   display: flex;
   flex-wrap: wrap;
+}
+
+.products__cartTitle {
+  margin: 5px 0;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid lightgray;
+  position: sticky;
+  top: 0;
+  background-color: #f6f6f6;
+}
+
+.products__cartItem > * {
+  margin: 0;
+}
+
+.products__cartItem {
+  padding: 10px;
+}
+
+.products__cartItem:nth-child(even) {
+  background-color: #fac56a;
+  color: #fff;
 }

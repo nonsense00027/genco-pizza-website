@@ -5,9 +5,12 @@ import { Button, Inpu, IconButton, Badge } from "@material-ui/core";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import swal from "@sweetalert/with-react";
+import { useStateValue } from "../../DataLayer";
+import { types } from "../../Reducer";
 
 function Pizza({ name, price, category, id }) {
   const [qty, setQty] = useState(1);
+  const [, dispatch] = useStateValue();
 
   const increment = () => {
     setQty((prevQty) => prevQty + 1);
@@ -20,6 +23,11 @@ function Pizza({ name, price, category, id }) {
   };
 
   const addOrder = () => {
+    dispatch({
+      type: types.ADD_TO_CART,
+      payload: { id, name, price, qty },
+    });
+
     swal({
       title: "Order added!",
       text: `${qty} pc/s ${name}`,

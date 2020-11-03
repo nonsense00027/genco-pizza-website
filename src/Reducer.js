@@ -3,6 +3,7 @@ export const types = {
   GET_CATEGORIES: "GET_CATEGORIES",
   GET_PRODUCTS: "GET_PRODUCTS",
   GET_DISPLAY_PRODUCTS: "GET_DISPLAY_PRODUCTS",
+  ADD_TO_CART: "ADD_TO_CART",
 };
 
 // export const getNumberOfPosts = (post) => post?.reduce((total, item) => (total+item.price),0)
@@ -39,6 +40,12 @@ const reducer = (state, action) => {
         displayProducts: state.products.filter(
           (product) => product.category == action.payload
         ),
+      };
+
+    case types.ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
       };
 
     default:
