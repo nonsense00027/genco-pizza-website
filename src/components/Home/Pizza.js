@@ -10,7 +10,7 @@ import { types } from "../../Reducer";
 
 function Pizza({ name, price, category, id }) {
   const [qty, setQty] = useState(1);
-  const [, dispatch] = useStateValue();
+  const [{ cart }, dispatch] = useStateValue();
 
   const increment = () => {
     setQty((prevQty) => prevQty + 1);
@@ -34,6 +34,12 @@ function Pizza({ name, price, category, id }) {
       icon: "success",
       buttons: false,
     });
+  };
+
+  const isAdded = (id) => {
+    const added = cart.filter((item) => item.id === id);
+    console.log("ADDED", added);
+    return added.length > 0;
   };
 
   return (
@@ -70,8 +76,12 @@ function Pizza({ name, price, category, id }) {
             </IconButton>
           </div>
         </div>
-        <Button className="pizza__order" onClick={addOrder}>
-          add order
+        <Button
+          className={isAdded(id) ? "pizza__oderAdded" : "pizza__order"}
+          disabled={isAdded(id)}
+          onClick={() => addOrder()}
+        >
+          {isAdded(id) ? "added" : "add order"}
         </Button>
       </div>
     </div>

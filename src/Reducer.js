@@ -4,6 +4,7 @@ export const types = {
   GET_PRODUCTS: "GET_PRODUCTS",
   GET_DISPLAY_PRODUCTS: "GET_DISPLAY_PRODUCTS",
   ADD_TO_CART: "ADD_TO_CART",
+  REMOVE_TO_CART: "REMOVE_TO_CART",
 };
 
 // export const getNumberOfPosts = (post) => post?.reduce((total, item) => (total+item.price),0)
@@ -46,6 +47,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart, action.payload],
+      };
+
+    case types.REMOVE_TO_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
       };
 
     default:

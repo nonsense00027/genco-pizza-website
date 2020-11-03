@@ -113,10 +113,18 @@
 .pizza__qtyButtonOption:hover {
   background: none !important;
 }
+
 .pizza__order {
   flex: 1;
   background-color: #fac56a !important;
   color: #fff !important;
   margin-left: 10px !important;
   /* font-size: 12px !important; */
+}
+
+.pizza__oderAdded {
+  flex: 1;
+  background-color: #e0e0e0 !important;
+  /* color: #fff !important; */
+  margin-left: 10px !important;
 }

@@ -2,10 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./Products.css";
 import { useParams } from "react-router-dom";
 import { useStateValue } from "../../DataLayer";
+import { types } from "../../Reducer";
 import Pizza from "./Pizza";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import { Button, Modal } from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
+import ClearIcon from "@material-ui/icons/Clear";
+import ListIcon from "@material-ui/icons/List";
+import ViewListIcon from "@material-ui/icons/ViewList";
+import { Button, IconButton, Modal } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 function getModalStyle() {
@@ -22,12 +27,13 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
+    top: 0,
     width: 400,
     height: 500,
     overflowY: "auto",
     backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
+    // border: "2px solid #000",
+    // boxShadow: theme.shadows[3],
     borderRadius: "5px",
     // padding: theme.spacing(2, 4, 3),
   },
@@ -41,6 +47,13 @@ function Products() {
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
 
+  const removeOrder = (id) => {
+    dispatch({
+      type: types.REMOVE_TO_CART,
+      payload: id,
+    });
+  };
+
   useEffect(() => {
     dispatch({
       type: "GET_DISPLAY_PRODUCTS",
@@ -50,6 +63,7 @@ function Products() {
 
   console.log("category", category);
   console.log("display products", displayProducts);
+  console.log("CART", cart);
 
   return (
     <div className="products">
@@ -60,16 +74,46 @@ function Products() {
         aria-describedby="simple-modal-description"
       >
         <div style={modalStyle} className={classes.paper}>
-          <h2 className="products__cartTitle">Your Orders</h2>
-          <div className="products__cartItems">
-            {cart.map((item) => (
-              <div className="products__cartItem">
-                <h4>{item.name}</h4>
-                <p>Qty: {item.qty}</p>
-                <p>Price: {item.price * item.qty}</p>
-              </div>
-            ))}
-          </div>
+          <h2 className="products__cartTitle">
+            <ListIcon className="products__cartTitleIcon" />
+            Orders
+          </h2>
+          {cart.length >= 1 ? (
+            <div className="products__cartItems">
+              {cart.map((item) => (
+                <div key={item.id} className="products__cartItem">
+                  <div className="products__cartItemInfo">
+                    <h6>{item.name}</h6>
+                    <p>Qty: {item.qty}</p>
+                    <p>Price: {item.price * item.qty}</p>
+                  </div>
+                  <div className="products__cartItemOption">
+                    <IconButton className="products__cartItemButton">
+                      <EditIcon className="products__cartItemEdit" />
+                    </IconButton>
+                    <IconButton className="products__cartItemButton">
+                      <ClearIcon
+                        className="products__cartItemDelete"
+                        onClick={() => removeOrder(item.id)}
+                      />
+                    </IconButton>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>
+              <h2>EMPTY ORDERS</h2>
+            </div>
+          )}
+
+          <center>
+            {cart.length >= 1 && (
+              <Button className="products__checkoutButton">
+                Proceed to Checkout
+              </Button>
+            )}
+          </center>
         </div>
       </Modal>
 
