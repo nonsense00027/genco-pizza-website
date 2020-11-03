@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "genco-pizza"
+  },
+  "targets": {
+    "genco-pizza": {
+      "hosting": {
+        "genco-pizza": [
+          "genco-pizza"
+        ]
+      }
+    }
   }
 }

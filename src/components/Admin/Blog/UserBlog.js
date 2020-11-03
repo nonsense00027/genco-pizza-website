@@ -7,7 +7,6 @@ import "./UserBlog.css";
 
 function UserBlog() {
   const [{ posts }, dispatch] = useStateValue();
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
 
@@ -52,7 +51,7 @@ function UserBlog() {
   function getPosts() {
     db.collection("Posts").onSnapshot((snapshot) => {
       let changes = snapshot.docChanges();
-      changes.forEach((change) => {
+      changes.forEach((change) => { 
         if (change.type == "added") {
           console.log("code exectued", change.doc.data().title);
           addToPosts(
@@ -78,9 +77,7 @@ function UserBlog() {
     );  console.log(filteredPosts.length)
   }, [search, posts]);
 
-  if (loading) {
-    return <p>Loading posts...</p>;
-  }
+
 
   return (
     <div className="userBlog">
@@ -95,7 +92,7 @@ function UserBlog() {
         <div className="row">
           {
             filteredPosts.length == 0 ? 
-              <h1>No result found</h1>
+              <h1>No results found</h1>
             :
               filteredPosts.map((post) => {
               console.log(filteredPosts.length)
