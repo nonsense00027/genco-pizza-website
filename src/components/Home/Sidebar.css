@@ -5,9 +5,14 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   box-shadow: 8px 0 20px rgba(0, 0, 0, 0.07);
+}
+
+.sidebar__logo {
+  width: 80px;
+  object-fit: contain;
 }
 
 .sidebar__categories > h2 {
@@ -22,11 +27,21 @@
 }
 
 .sidebar__categories .active {
-  background-color: #fac56a;
+  background-color: #f38857;
   color: #fff;
 }
 
 .sidebar__categories > h2:hover {
-  background-color: #fac56a;
+  background-color: #f38857;
   color: #fff;
+}
+
+.sidebar__socialMedias {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sidebar__socialMedia {
+  margin: 0 10px;
+  font-size: 30px !important;
 }

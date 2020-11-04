@@ -38,8 +38,15 @@ function Pizza({ name, price, category, id }) {
 
   const isAdded = (id) => {
     const added = cart.filter((item) => item.id === id);
-    console.log("ADDED", added);
     return added.length > 0;
+  };
+
+  const handleChange = (e) => {
+    // setQty()
+    // console.log(Number.isInteger(parseInt(e)));
+    if (Number.isInteger(parseInt(e.target.value))) {
+      setQty(parseInt(e.target.value));
+    }
   };
 
   return (
@@ -60,7 +67,7 @@ function Pizza({ name, price, category, id }) {
       </div>
       <div className="pizza__footer">
         <div className="pizza__qty">
-          <input type="text" value={qty} disabled />
+          <input type="text" value={qty} onChange={(e) => handleChange(e)} />
           <div className="pizza__qtyOptions">
             <IconButton className="pizza__qtyButton">
               <ArrowDropUpIcon

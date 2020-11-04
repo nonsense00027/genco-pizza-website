@@ -1,3 +1,5 @@
+import Cookie from "js-cookie";
+
 export const types = {
   ADD_TO_POSTS: "ADD_TO_POSTS",
   GET_CATEGORIES: "GET_CATEGORIES",
@@ -7,6 +9,11 @@ export const types = {
   REMOVE_TO_CART: "REMOVE_TO_CART",
 };
 
+// UTILITY FUNCTIONS
+
+export const saveToCart = (cart) => {
+  Cookie.set("cart", JSON.stringify(cart));
+};
 // export const getNumberOfPosts = (post) => post?.reduce((total, item) => (total+item.price),0)
 
 const reducer = (state, action) => {

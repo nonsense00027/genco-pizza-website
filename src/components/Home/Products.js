@@ -12,6 +12,8 @@ import ListIcon from "@material-ui/icons/List";
 import ViewListIcon from "@material-ui/icons/ViewList";
 import { Button, IconButton, Modal } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import empty from "../../img/empty.svg";
+import { saveToCart } from "../../Reducer";
 
 function getModalStyle() {
   const top = 50;
@@ -54,12 +56,20 @@ function Products() {
     });
   };
 
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price * item.qty, 0);
+  };
+
   useEffect(() => {
     dispatch({
       type: "GET_DISPLAY_PRODUCTS",
       payload: category,
     });
   }, [category, products]);
+
+  useEffect(() => {
+    saveToCart(cart);
+  }, [cart]);
 
   console.log("category", category);
   console.log("display products", displayProducts);
@@ -100,10 +110,14 @@ function Products() {
                   </div>
                 </div>
               ))}
+              <div className="products__cartTotal">
+                <h5>Total: {getTotalPrice()}</h5>
+              </div>
             </div>
           ) : (
-            <div>
-              <h2>EMPTY ORDERS</h2>
+            <div className="products__cartEmpty">
+              <img src={empty} alt="" />
+              <h6>You don't have any orders yet</h6>
             </div>
           )}
 

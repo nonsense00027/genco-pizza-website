@@ -52,11 +52,12 @@
 }
 
 .pizza__size {
-  background-color: #f6f6f6 !important;
+  background-color: #e0e0e0 !important;
+  /* color: #fff !important; */
 }
 
 .pizza__size.selected {
-  background-color: #fac56a !important;
+  background-color: #f38857 !important;
   color: #fff;
 }
 
@@ -116,7 +117,7 @@
 
 .pizza__order {
   flex: 1;
-  background-color: #fac56a !important;
+  background-color: #f38857 !important;
   color: #fff !important;
   margin-left: 10px !important;
   /* font-size: 12px !important; */

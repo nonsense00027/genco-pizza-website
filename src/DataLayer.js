@@ -1,13 +1,15 @@
 import React, { createContext, useContext, useReducer } from "react";
 import reducer from "./Reducer";
+import Cookie from "js-cookie";
 
+const cartCookie = Cookie.getJSON("cart") || [];
 const initialState = {
   posts: [],
   user: null,
   categories: [],
   products: [],
   displayProducts: [],
-  cart: [],
+  cart: cartCookie,
 };
 
 //Prepares the data layer
