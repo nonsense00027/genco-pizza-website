@@ -8,14 +8,34 @@ import Blog from "./components/Admin/Blog/UserBlog";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
-import { db } from "./firebase";
+import { db, auth } from "./firebase";
 import { useStateValue } from "./DataLayer";
 import { types } from "./Reducer";
 
 // App = Root
 function App() {
   const [{ products }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        console.log("USER", authUser);
+        dispatch({
+          type: types.SET_USER,
+          payload: authUser,
+        });
+      } else {
+        console.log("USER IS NULL");
+        dispatch({
+          type: types.SET_USER,
+          payload: null,
+        });
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     db.collection("products").onSnapshot((snapshot) => {

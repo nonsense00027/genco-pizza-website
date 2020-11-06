@@ -14,7 +14,7 @@ import { Button, IconButton, Modal } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import empty from "../../img/empty.svg";
 import { saveToCart } from "../../Reducer";
-
+import { auth, provider } from "../../firebase";
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Products() {
   const { category } = useParams();
-  const [{ products, displayProducts, cart }, dispatch] = useStateValue();
+  const [{ user, products, displayProducts, cart }, dispatch] = useStateValue();
   const [open, setOpen] = useState(false);
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
@@ -58,6 +58,10 @@ function Products() {
 
   const getTotalPrice = () => {
     return cart.reduce((total, item) => total + item.price * item.qty, 0);
+  };
+
+  const logIn = () => {
+    auth.signInWithPopup(provider);
   };
 
   useEffect(() => {
@@ -137,14 +141,21 @@ function Products() {
           <SearchIcon />
         </div>
         <div className="products__options">
-          <Button className="products__login">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png"
-              alt=""
-              className="products__loginLogo"
-            />
-            Login
-          </Button>
+          {user ? (
+            <Button className="products__login">
+              Hello, {user.displayName.split(" ")[0]}
+            </Button>
+          ) : (
+            <Button className="products__login" onClick={logIn}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png"
+                alt=""
+                className="products__loginLogo"
+              />
+              Login
+            </Button>
+          )}
+
           <Button className="products__cart" onClick={() => setOpen(true)}>
             <ShoppingBasketIcon className="products__cartLogo" />
             Orders
@@ -154,6 +165,7 @@ function Products() {
       <div className="products__body">
         {displayProducts.map((product) => (
           <Pizza
+            key={product.id}
             name={product.name}
             id={product.id}
             category={product.category}

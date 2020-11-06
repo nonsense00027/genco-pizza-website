@@ -69,17 +69,11 @@ function Pizza({ name, price, category, id }) {
         <div className="pizza__qty">
           <input type="text" value={qty} onChange={(e) => handleChange(e)} />
           <div className="pizza__qtyOptions">
-            <IconButton className="pizza__qtyButton">
-              <ArrowDropUpIcon
-                className="pizza__qtyButtonOption"
-                onClick={increment}
-              />
+            <IconButton className="pizza__qtyButton" onClick={increment}>
+              <ArrowDropUpIcon className="pizza__qtyButtonOption" />
             </IconButton>
-            <IconButton className="pizza__qtyButton">
-              <ArrowDropDownIcon
-                className="pizza__qtyButtonOption"
-                onClick={decrement}
-              />
+            <IconButton className="pizza__qtyButton" onClick={decrement}>
+              <ArrowDropDownIcon className="pizza__qtyButtonOption" />
             </IconButton>
           </div>
         </div>

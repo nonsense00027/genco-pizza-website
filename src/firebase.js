@@ -16,5 +16,16 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 const storage = firebase.storage();
+const provider = new firebase.auth.GoogleAuthProvider();
+// const provider2 = firebase
+//   .auth()
+//   .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+//   .then(function () {
+//     return new firebase.auth().GoogleAuthProvider();
+//   })
+//   .catch(function (error) {
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//   });
 
-export { db, auth, storage };
+export { db, auth, storage, provider };

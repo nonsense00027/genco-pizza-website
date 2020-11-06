@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
 import reducer from "./Reducer";
 import Cookie from "js-cookie";
+import { saveToCart } from "./Reducer";
 
 const cartCookie = Cookie.getJSON("cart") || [];
 const initialState = {
