@@ -1,0 +1,26 @@
+.side {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px 40px 40px;
+  z-index: 100;
+}
+
+.side > img {
+  width: 50px;
+  object-fit: contain;
+}
+
+.side__socialMedias {
+  display: flex;
+  flex-direction: column;
+}
+
+.side__socialMedia {
+  margin: 15px 0;
+}

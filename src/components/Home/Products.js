@@ -13,8 +13,11 @@ import ViewListIcon from "@material-ui/icons/ViewList";
 import { Button, IconButton, Modal } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import empty from "../../img/empty.svg";
-import { saveToCart } from "../../Reducer";
+import { saveToCart } from "../../utilities";
 import { auth, provider } from "../../firebase";
+import Card from "./Card";
+import pizza from "../../img/pizza.jpg";
+
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -172,6 +175,15 @@ function Products() {
             price={product.price}
           />
         ))}
+
+        {/* {displayProducts.map((product) => (
+          <Card
+            key={product.id}
+            name={product.name}
+            price={product.price}
+            img={pizza}
+          />
+        ))} */}
       </div>
     </div>
   );

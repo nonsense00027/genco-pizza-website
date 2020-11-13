@@ -10,11 +10,11 @@ import * as serviceWorker from "./serviceWorker";
 import { DataLayer } from "./DataLayer";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <DataLayer>
-      <App />
-    </DataLayer>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <DataLayer>
+    <App />
+  </DataLayer>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 

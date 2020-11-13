@@ -1,4 +1,4 @@
-import Cookie from "js-cookie";
+import { collectIdsAndDocs } from "./utilities";
 
 export const types = {
   ADD_TO_POSTS: "ADD_TO_POSTS",
@@ -10,11 +10,6 @@ export const types = {
   SET_USER: "SET_USER",
 };
 
-// UTILITY FUNCTIONS
-
-export const saveToCart = (cart) => {
-  Cookie.set("cart", JSON.stringify(cart));
-};
 // export const getNumberOfPosts = (post) => post?.reduce((total, item) => (total+item.price),0)
 
 const reducer = (state, action) => {
@@ -30,17 +25,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         categories: action.payload
-          .map((doc) => ({
-            ...doc.data(),
-            id: doc.id,
-          }))
+          .map((doc) => collectIdsAndDocs(doc))
           .sort((a, b) => a.place - b.place),
       };
 
     case types.GET_PRODUCTS:
       return {
         ...state,
-        products: action.payload.map((doc) => ({ ...doc.data(), id: doc.id })),
+        products: action.payload.map((doc) => collectIdsAndDocs(doc)),
       };
 
     case types.GET_DISPLAY_PRODUCTS:

@@ -4,6 +4,7 @@ import Landing from "./components/Landing/";
 import Admin from "./components/Admin/";
 import Header from "./components/Header";
 import Home from "./components/Home/";
+import Sample from "./components/Sample/Sample";
 import Blog from "./components/Admin/Blog/UserBlog";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -68,6 +69,9 @@ function App() {
           </Route>
           <Route path="/blog">
             <Blog></Blog>
+          </Route>
+          <Route path="/ui/:category">
+            <Sample />
           </Route>
           <Route path="/">
             <Landing />

@@ -4,7 +4,7 @@
   height: 300px;
   margin: 10px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 3px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -53,6 +53,7 @@
 
 .pizza__size {
   background-color: #e0e0e0 !important;
+  /* font-size: 8px !important; */
   /* color: #fff !important; */
 }
 

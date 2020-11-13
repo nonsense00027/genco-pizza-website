@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 50px 30px 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.header__menus {
+  display: flex;
+  align-items: center;
+}
+
+.header__menus > h6 {
+  padding: 0 10px;
+  margin-left: 10px;
+  color: #292929;
+  font-weight: 400;
+  /* font-size: 18px; */
+}
+
+.header__menus > .header__menuSelected {
+  color: #64c9b7;
+  font-weight: 500;
+}
+
+.header__login,
+.header__cart {
+  padding: 10px 0 !important;
+  width: 120px !important;
+  margin: 0 2px !important;
+}
+
+.header__login:focus,
+.header__cart:focus {
+  outline: 0;
+}
+
+.header__login {
+  background-color: #f38857 !important ;
+  color: #fff !important;
+}
+
+.header__cartDrawer {
+  width: 350px !important;
+  padding: 30px 0 !important;
+}
